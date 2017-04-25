@@ -16,7 +16,11 @@ sim = 0;
 %
 %
 
+distanceVec = x1 - x2;
 
+distance = transpose(distanceVec)*distanceVec; % distanceVec
+variance = 2*sigma*sigma;
+sim = exp(-distance/variance);
 
 
 

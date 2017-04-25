@@ -139,6 +139,11 @@ pause;
 load('ex6data3.mat');
 
 % Try different SVM Parameters here
+fprintf('*************************.\n');
+fprintf('*************************.\n');
+fprintf('The code execute to here\n');
+fprintf('*************************.\n');
+fprintf('*************************.\n');
 [C, sigma] = dataset3Params(X, y, Xval, yval);
 
 % Train the SVM
