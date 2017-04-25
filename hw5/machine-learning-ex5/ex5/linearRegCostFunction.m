@@ -18,28 +18,25 @@ grad = zeros(size(theta));
 %
 %               You should set J to the cost and grad to the gradient.
 %
-% X = [ones(m, 1) X];
-% disp("*****************")
-% disp("*****************")
-% size(X, 1)
-% size(X, 2)
-% size(theta, 1)
-% size(theta, 2)
-% size(y, 1)
-% size(y, 2)
-% disp("*****************")
-% disp("*****************")
 
-interMediateResult = X*theta;
+interResult = X*theta;
 
-% a1 = 1./(1 + exp(-interMediateResult));
-a1 = interMediateResult - y;
+% a1 = 1./(1 + exp(-interResult));
 
-J = sum(a1.*a1)/2/m;
-% this should be a number
+a1 = interResult - y;
 
-theta4Reg = theta(2:end);
-J = J + lambda*sum(theta4Reg.*theta4Reg)/2/m;
+J = J + transpose(a1)*a1;
+
+thetaInUse = theta(2:end);
+
+J = J + lambda*transpose(thetaInUse)*thetaInUse;
+
+J = J/2/m;
+
+theta4Grad = [0; theta(2:end)];
+
+sum0 = sum(a1.*X)/m;
+grad = sum0 + lambda/m*transpose(theta4Grad);
 
 % =========================================================================
 
