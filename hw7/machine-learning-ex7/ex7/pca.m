@@ -20,7 +20,16 @@ S = zeros(n);
 %       number of examples).
 %
 
+sigma = zeros(n);
 
+for lIndex=1:m
+    sigma += transpose(X(lIndex,:))*X(lIndex,:);
+end
+
+sigma /= m;
+
+
+[U, S, V] = svd(sigma);
 
 
 
